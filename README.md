@@ -13,3 +13,12 @@ modules used
     
     dotenv
     
+dotenv is used to secure credentials. To make the code work, you'd need to create a db.env in the repo. and write the values of the placeholders found in the code (email, email2 and password) as follows:
+
+    PASSWORD = 'GmailPassword'
+ 
+    EMAIL = 'GmailAddress'
+ 
+    EMAIL2 = 'recipientEmail'
+ 
+You would be logging in directly to, in this case, gmail smtp server. No one would have access to it. Just make sure the db.env is included in the .gitignore.
