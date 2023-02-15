@@ -13,7 +13,7 @@ modules used
     
     dotenv
     
-dotenv is used to secure credentials. To make the code work, you'd need to create a db.env in the repo. and write the values of the placeholders found in the code (email, email2 and password) as follows:
+dotenv is used to secure credentials. To make the code work, you'd need to create a db.env in the repo. and write in the values of the placeholders found in the code (email, email2 and password) as follows:
 
     PASSWORD = 'GmailPassword'
  
