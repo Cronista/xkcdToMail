@@ -1,12 +1,11 @@
 import requests, bs4, smtplib, time, os
 from dotenv import load_dotenv
-from pathlib import Path
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
 #explicitly state the path to the .env file to that raspbian's crontab may read it, if the case (raspberry)
-#env_path = Path('.') / '/home/pi/share/xkcdTomail/db.env'
+#env_path = '/home/pi/share/xkcdTomail/db.env'
 env_path = ('db.env')
 
 #create a database to store environmental variables to secure smtp login credentials in the code
