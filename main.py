@@ -6,11 +6,12 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 
 #explicitly state the path to the .env file to that raspbian's crontab may read it, if the case (raspberry)
-env_path = Path('.') / '/home/pi/share/xkcdTomail/db.env'
+#env_path = Path('.') / '/home/pi/share/xkcdTomail/db.env'
+env_path = ('db.env')
 
 #create a database to store environmental variables to secure smtp login credentials in the code
 load_dotenv(env_path)
-password = os.environ['PASSWORD']; email = os.environ['EMAIL']; email2 = os.environ['EMAIL2']
+password = os.environ['PASSWORD']; email = os.environ['EMAIL']; emailto = os.environ.get('EMAILTO').split(",")
 
 #stores the UTC day of the week in a variable using 'time' module
 dayoftheweek = time.gmtime().tm_wday
@@ -18,7 +19,7 @@ dayoftheweek = time.gmtime().tm_wday
 def xkcdScrap(url):
 
     #check for day of the week: monday, wednesday and friday, get current comic. All other days: get a random comic
-    if dayoftheweek == 0 or 2 or 4:
+    if dayoftheweek == 0 or dayoftheweek == 2 or dayoftheweek == 4:
 
         #downloads the site into memory
         res = requests.get(url)
@@ -97,7 +98,7 @@ def xkcdSend(img, num):
         conn.ehlo()
         conn.starttls()
         conn.login(email, password)
-        conn.sendmail(email, email2, msg.as_string())
+        conn.sendmail(email, emailto, msg.as_string())
 
     print('Sent!')
 
