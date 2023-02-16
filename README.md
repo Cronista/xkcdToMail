@@ -25,4 +25,4 @@ dotenv is used to secure credentials. To make the code work, you'd need to creat
  
 You would be logging in directly to, in this case, gmail smtp server. No one would have access to it. Just make sure the db.env is included in the .gitignore.
 
-There is also a workaround to get dotenv working with raspbian crontab, if raspberrypi is used to run the script.
+There is also a fix envolving dotenv working with raspbian crontab, if raspberrypi is used to run the script.
