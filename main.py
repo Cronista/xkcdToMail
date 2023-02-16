@@ -20,7 +20,7 @@ def xkcdScrap(url):
     #check for day of the week: monday, wednesday and friday, get current comic. All other days: get a random comic
     if dayoftheweek == 0 or dayoftheweek == 2 or dayoftheweek == 4:
 
-        #downloads the site into memory
+        #downloads the site and stores it
         res = requests.get(url)
 
         #checks for download errors
@@ -42,13 +42,13 @@ def xkcdScrap(url):
         img_url = img_tag['src']
         img_url_full = 'https:' + img_url
 
-        #saves the image's byte data into memory
+        #saves the image's byte data
         img_data = requests.get(img_url_full).content
 
         return img_data, numsource
     else:
         
-        #downloads the random comic page into memory
+        #downloads the random comic page
         res = requests.get('https://c.xkcd.com/random/comic/')
 
         #checks for download errors
@@ -70,7 +70,7 @@ def xkcdScrap(url):
         img_url = img_tag['src']
         img_url_full = 'https:' + img_url
 
-        #saves the image's byte data into memory
+        #saves the image's byte data
         img_data = requests.get(img_url_full).content
 
         return img_data, numsource
